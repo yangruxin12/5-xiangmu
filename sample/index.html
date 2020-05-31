@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>弹窗</title>
+		<link rel="stylesheet" href="../dist/tanchuang-ttl168-1.1.1.min.css">
+		<style>
+			
+		</style>
+	</head>
+	<body>
+		 <button id="send">发送</button>
+		<div id="shot-container">
+			<!-- 遮罩层 -->
+			<div class="mask"></div>
+			<!-- 弹窗层 -->
+			<div class="tanKuang">
+				<!-- 标题 -->
+				<div class="title">
+					<span class="title_name">标题</span>
+					<img class="close" src="images/close.png" alt="">
+				</div>
+				<!-- 内容 -->
+				<div class="content">
+					这是内容区
+				</div>
+				<!-- 底部按钮 -->
+				<div class="btns">
+					<button class="press-true">确 认</button>
+					<button class="press-false">取 消</button>
+				</div>
+			</div>
+			<!-- 弹窗显示，确认后的弹出层 -->
+			<div class="success">
+				<span class="success_text">完 成</span>
+				
+			</div>
+			<!-- 弹窗显示，取消后的弹出层 -->
+			<div class="cancel">
+				<span class="cancel-text">取 消</span>
+			</div>
+		</div>
+	</body>
+</html>
+<script src="../dist/tanchuang-ttl168-1.1.1.min.js"></script>
+<script>
+	var obj = {
+		id:"shot-container",
+		class_name:["tanKuang","title_name","close","content","press-true","press-false","success","cancel","mask"],
+		width:"380px",//弹框的宽
+		height:"220px",//弹框的高
+		title_color:"#787878",//标题的颜色
+		title_fontSize:"24px",//标题的字体大小
+		content_color:"orange",//内容的字体颜色
+		content_fontSize:"15px",//内容的字体大小
+		title:"我是标题",//标题内容
+		content:"我是内容",//内容的内容
+		deg:"180",//悬浮关闭按钮时，旋转的角度
+		getDom:function(className){
+			return document.getElementsByClassName(className)[0];
+		}
+	}
+	var  send = document.getElementById("send");//客户点击按钮
+	send.onclick = function(){
+		var  tanKuang = new ShotBox(obj);
+	}
+	
+</script>
